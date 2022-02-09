@@ -1,6 +1,4 @@
-  
 
-# # Hire-ME
 <img src="screenshots/HireMe.png" width="800">
 
 
