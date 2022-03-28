@@ -61,7 +61,7 @@ def apply(table):
 
 # ----------------------------------------------Delete A Job -----------------------------------
 
-
+#Trigger backup_application runs before deletion of the application and backs it up to the applicationbackup folder
 def delet(table):
     selectedindex = table.focus()
     selectedvalues = table.item(selectedindex, 'values')
@@ -89,6 +89,7 @@ def sort_alljobs(table):
         cur = mycon.cursor()
         cur.execute(
             f'select job.JID,job.JobRole,job.JobType, recruiter.CompanyName, recruiter.CompanyLocation, job.Qualification, job.MinExp, job.Salary from mydb.job JOIN mydb.recruiter ON job.rid=recruiter.rid order by {criteria}')
+        # cur.execute(f'CALL mydb.selectcrit({criteria})')
         jobs = cur.fetchall()
         mycon.close()
         i = 0

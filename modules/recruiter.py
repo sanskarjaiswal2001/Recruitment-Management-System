@@ -198,6 +198,7 @@ def create():
 
 # -------------------------------------------------Delete A Posted Job----------------------------------------------------------
 
+#Trigger backup_job runs before the deletion of the job and backs up the job to the jobbackup table
 
 def deletjob(table):
     selectedindex = table.focus()

@@ -54,6 +54,15 @@ CREATE TABLE IF NOT EXISTS mydb.Job (
   );
   """
 
+Create_Job_Backup = """
+CREATE TABLE IF NOT EXISTS mydb.JobBack (
+  RID INT NOT NULL,
+  JobRole VARCHAR(45) NOT NULL,
+  JobType VARCHAR(45) NOT NULL,
+  FOREIGN KEY (RID) REFERENCES mydb.Recruiter(RID)
+  );
+  """
+
 Create_Application_Table="""
 CREATE TABLE IF NOT EXISTS mydb.Application(
     AID INT NOT NULL AUTO_INCREMENT,
@@ -67,3 +76,11 @@ CREATE TABLE IF NOT EXISTS mydb.Application(
 );
 """
 
+Create_Application_Backup="""
+CREATE TABLE IF NOT EXISTS mydb.ApplicationBackup(
+    AID INT NOT NULL,
+    JID INT NOT NULL,
+    FOREIGN KEY(AID) REFERENCES mydb.Application(AID),
+    FOREIGN KEY(JID) REFERENCES mydb.Job(JID)
+);
+"""
