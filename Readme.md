@@ -23,7 +23,7 @@
 ##### Move to the desired folder
 
 ```bash
-cd Hire-ME
+cd Recruitment-Management-System
 ```
 
 ##### To install the dependencies, simply write
