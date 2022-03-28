@@ -7,6 +7,7 @@ from modules.recruiter import *
 from modules.client import *
 from modules.creds import user_pwd
 
+
 def success(root, email1):
     global f
     f1.destroy()
@@ -15,7 +16,7 @@ def success(root, email1):
     except:
         pass
 
-    s = f'select type from users where email="{email1}"'
+    s = f"CALL typeemail('{email1}')"
     mycon = sql.connect(host='localhost', user='root',
                         passwd=user_pwd, database='mydb')
     cur = mycon.cursor()

@@ -9,7 +9,7 @@ from modules.creds import user_pwd
 
 def get_details(email):
     global name, location, gen, clicid
-    q = f'select CName,CLocation,CGender,CID from mydb.client where CEmail="{email}"'
+    q = f"CALL whereemail('{email}')"
     mycon = sql.connect(host='localhost', user='root',
                         passwd=user_pwd, database='mydb')
     cur = mycon.cursor()
@@ -61,7 +61,9 @@ def apply(table):
 
 # ----------------------------------------------Delete A Job -----------------------------------
 
-#Trigger backup_application runs before deletion of the application and backs it up to the applicationbackup folder
+# Trigger backup_application runs before deletion of the application and backs it up to the applicationbackup folder
+
+
 def delet(table):
     selectedindex = table.focus()
     selectedvalues = table.item(selectedindex, 'values')
